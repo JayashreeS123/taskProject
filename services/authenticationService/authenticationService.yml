@@ -1,0 +1,15 @@
+registerUser:
+  handler: services/authenticationService/apiAuthentication.registerUser
+  events:
+    - http:
+        path: authentication/register
+        method: post
+        cors: true
+
+login:
+  handler: services/apiAuthenticationService/apiAuthentication.login
+  events:
+    - http:
+        path: authentication/login
+        method: post
+        cors: true

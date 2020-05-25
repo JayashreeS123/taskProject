@@ -1,0 +1,40 @@
+createUser:
+  handler: services/userService/user.createUser
+  events:
+    - http:
+        path: /user
+        method: post
+        cors: true
+        authorizer:
+          authorizerId:
+            Ref: ApiGatewayAuthorizer
+getUser:
+  handler: services/userService/user.getUser
+  events:
+    - http:
+        path: /user
+        method: get
+        cors: true
+        authorizer:
+          authorizerId:
+            Ref: ApiGatewayAuthorizer
+updateUserAttributes:
+  handler: services/userService/user.updateUserAttributes
+  events:
+    - http:
+        path: /user/{id}
+        method: put
+        cors: true
+        authorizer:
+          authorizerId:
+            Ref: ApiGatewayAuthorizer
+deleteUserAttributes:
+  handler: services/userService/user.deleteUserAttributes
+  events:
+    - http:
+        path: /user/{id}
+        method: delete
+        cors: true
+        authorizer:
+          authorizerId:
+            Ref: ApiGatewayAuthorizer
